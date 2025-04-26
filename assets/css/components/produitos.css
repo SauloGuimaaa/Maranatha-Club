@@ -1,0 +1,142 @@
+/* Estilos para a seção de produtos */
+.produtos-destaque {
+    background-color: #f5eee6;
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    color: #063c8f;
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-subtitle {
+    color: #cf0707;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .produto-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .produto-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .produto-imagem {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .produto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .produto-card:hover .produto-imagem img {
+    transform: scale(1.05);
+  }
+  
+  .destaque-tag, .novidade-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+  
+  .destaque-tag {
+    background-color: #cf0707;
+    color: white;
+  }
+  
+  .novidade-tag {
+    background-color: #063c8f;
+    color: white;
+  }
+  
+  .produto-info {
+    padding: 1.5rem;
+  }
+  
+  .produto-info h3 {
+    color: #063c8f;
+    margin-bottom: 0.8rem;
+  }
+  
+  .produto-info p {
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  .btn-saiba-mais {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: #063c8f;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-saiba-mais:hover {
+    background-color: #052b6b;
+  }
+  
+  .cta-produtos {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  .cta-produtos p {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .btn-ver-todos {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: #cf0707;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-ver-todos:hover {
+    background-color: #a80606;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .produtos-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+    }
+  }

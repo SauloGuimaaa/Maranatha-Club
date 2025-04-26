@@ -1,0 +1,138 @@
+/* FAQ Section */
+.faq {
+    padding: 4rem 2rem;
+    background-color: #f5eee6;
+}
+
+.faq__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq__title {
+    font-size: 2.5rem;
+    color: #063c8f;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.faq__title span {
+    color: #cf0707;
+}
+
+.faq__subtitle {
+    text-align: center;
+    color: #333;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+.faq__accordion {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.faq__item {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.faq__question {
+    padding: 1.5rem;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq__question h3 {
+    margin: 0;
+    color: #063c8f;
+    font-size: 1.1rem;
+}
+
+.faq__question i {
+    color: #cf0707;
+    transition: transform 0.3s ease;
+}
+
+.faq__answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq__answer p {
+    margin: 0;
+    padding-bottom: 1.5rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.faq__item.active .faq__answer {
+    max-height: 300px;
+    padding: 0 1.5rem;
+}
+
+.faq__item.active .faq__question i {
+    transform: rotate(180deg);
+}
+
+.faq__cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.faq__cta p {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.faq__contact-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq__contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(207, 7, 7, 0.3);
+}
+
+/* Melhorias para o accordion */
+.faq__item .faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    will-change: max-height;
+}
+
+.faq__item.active .faq__answer {
+    max-height: 500px;
+    padding-bottom: 1.5rem;
+}
+
+.faq__item.active .faq__question {
+    background-color: #f5eee6;
+    border-left: 4px solid #cf0707;
+}
+
+.faq__item.active .faq__question h3 {
+    color: #cf0707;
+    font-weight: bold;
+}
+
+.faq__question i {
+    transition: transform 0.3s ease;
+}

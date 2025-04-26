@@ -1,0 +1,27 @@
+:root {
+    /* Cores */
+    --azul-maranatha: #063c8f;
+    --vermelho-maranatha: #cf0707;
+    --bege-claro: #f5eee6;
+    --branco: #ffffff;
+    --preto: #333333;
+    
+    /* Tipografia */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-secundaria: 'Arial', sans-serif;
+    
+    /* Espaçamentos */
+    --espacamento-xs: 0.5rem;
+    --espacamento-sm: 1rem;
+    --espacamento-md: 2rem;
+    --espacamento-lg: 3rem;
+    --espacamento-xl: 4rem;
+    
+    /* Bordas */
+    --borda-arredondada: 50px;
+    --borda-suave: 8px;
+    
+    /* Sombras */
+    --sombra-box: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --sombra-texto: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
