@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // ========== CONTROLE DO FORMULÁRIO ==========
     const petvipForm = document.getElementById('petvipForm');
+    const mpButton = document.getElementById('mp-button'); // Botão do Mercado Pago
     
     if (petvipForm) {
         // Elementos do formulário
@@ -66,15 +67,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const emailGroup = emailInput.closest('.form-group');
             if (!emailGroup) return false;
             
+            let errorMsg = emailGroup.querySelector('.error-message');
+            if (!errorMsg) {
+                errorMsg = document.createElement('small');
+                errorMsg.className = 'error-message';
+                emailGroup.appendChild(errorMsg);
+            }
+            
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
             if (!re.test(emailInput.value.trim())) {
                 emailGroup.classList.add('error');
-                const errorMsg = emailGroup.querySelector('.error-message');
-                if (errorMsg) errorMsg.textContent = 'Por favor, insira um e-mail válido';
+                errorMsg.textContent = 'Por favor, insira um e-mail válido';
                 return false;
             } else {
                 emailGroup.classList.remove('error');
+                errorMsg.textContent = '';
                 return true;
             }
         }
@@ -83,14 +91,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const telefoneGroup = telefoneInput.closest('.form-group');
             if (!telefoneGroup) return false;
             
+            let errorMsg = telefoneGroup.querySelector('.error-message');
+            if (!errorMsg) {
+                errorMsg = document.createElement('small');
+                errorMsg.className = 'error-message';
+                telefoneGroup.appendChild(errorMsg);
+            }
+            
             const value = telefoneInput.value.replace(/\D/g, '');
             if (value.length < 10 || value.length > 11) {
                 telefoneGroup.classList.add('error');
-                const errorMsg = telefoneGroup.querySelector('.error-message');
-                if (errorMsg) errorMsg.textContent = 'Por favor, insira um telefone válido';
+                errorMsg.textContent = 'Por favor, insira um telefone válido';
                 return false;
             } else {
                 telefoneGroup.classList.remove('error');
+                errorMsg.textContent = '';
                 return true;
             }
         }
@@ -119,40 +134,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Configura o botão do Mercado Pago
-        const mpButton = document.querySelector('[name="MP-payButton"]');
         if (mpButton) {
             mpButton.addEventListener('click', async function(e) {
                 e.preventDefault();
             
-                if (!validateNome() || !validateEmail()) {
-                    showFeedback('Por favor, preencha nome e e-mail corretamente.', 'error');
-                    return;
-                }
-
+                // Adiciona estado de loading
+                const originalText = mpButton.innerHTML;
+                mpButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSANDO...';
+                mpButton.disabled = true;
+            
                 try {
-                    // Armazena os dados temporariamente
-                    // No main.js, atualize a validação do tipo de pet
-                if (!petTypeRadio) {
-                    showFeedback('Por favor, selecione o tipo do seu pet.', 'error');
-                    return;
-                }
-
-                // Converter para o formato que o backend espera
-                const petTypeMap = {
-                    'cao': 'caes',
-                    'gato': 'gatos'
-                };
-
-                const leadData = {
-                    nome: nomeInput.value.trim(),
-                    email: emailInput.value.trim(),
-                    telefone: telefoneInput ? telefoneInput.value.replace(/\D/g, '') : '',
-                    petType: petTypeMap[petTypeRadio.value] || petTypeRadio.value
-                };
-
+                    if (!validateNome() || !validateEmail()) {
+                        showFeedback('Por favor, preencha nome e e-mail corretamente.', 'error');
+                        return;
+                    }
+        
+                    // Verificação robusta do tipo de pet
+                    const petTypeRadios = document.querySelectorAll('input[name="pet_type"]');
+                    let petTypeRadio = null;
+        
+                    petTypeRadios.forEach(radio => {
+                        if (radio.checked) {
+                            petTypeRadio = radio;
+                        }
+                    });
+        
+                    if (!petTypeRadio) {
+                        showFeedback('Por favor, selecione o tipo do seu pet.', 'error');
+                        return;
+                    }
+        
+                    // Mapeamento para os valores que o backend espera
+                    const petTypeMap = {
+                        'cao': 'caes',
+                        'gato': 'gatos'
+                    };
+        
+                    const leadData = {
+                        nome: nomeInput.value.trim(),
+                        email: emailInput.value.trim(),
+                        telefone: telefoneInput ? telefoneInput.value.replace(/\D/g, '') : '',
+                        petType: petTypeMap[petTypeRadio.value] || petTypeRadio.value
+                    };
+        
                     // Mostra feedback de carregamento
                     showFeedback('Processando sua assinatura...', 'info');
                     
+                    // Log para depuração
+                    console.log('Enviando dados para o servidor:', {
+                        nome: leadData.nome.substring(0, 3) + '...',
+                        email: leadData.email.substring(0, 3) + '...',
+                        petType: leadData.petType,
+                        telefone: leadData.telefone ? leadData.telefone.substring(0, 3) + '...' : 'não fornecido'
+                    });
+        
                     // Envia para o backend
                     const response = await fetch('/create-subscription', {
                         method: 'POST',
@@ -162,23 +197,23 @@ document.addEventListener('DOMContentLoaded', function() {
                         },
                         body: JSON.stringify(leadData)
                     });
-
+        
                     // Verificação completa da resposta
                     if (!response) {
                         throw new Error('Sem resposta do servidor');
                     }
-
+        
                     if (!response.ok) {
                         const errorText = await response.text();
                         throw new Error(errorText || 'Erro no servidor');
                     }
-
+        
                     const data = await response.json();
                     
                     if (!data.payment_url && !data.sandbox_init_point && !data.init_point) {
                         throw new Error('URL de pagamento não recebida');
                     }
-
+        
                     // Redireciona para o checkout do Mercado Pago
                     const paymentUrl = data.payment_url || 
                                       (process.env.NODE_ENV === 'production' ? data.init_point : data.sandbox_init_point);
@@ -193,6 +228,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             : error.message,
                         'error'
                     );
+                } finally {
+                    // Restaura o botão independentemente do resultado
+                    mpButton.innerHTML = originalText;
+                    mpButton.disabled = false;
                 }
             });
         }
