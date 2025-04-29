@@ -67,7 +67,7 @@
 }
 
 .footer-logo img {
-    height: 150px;
+    height: 215px;
     margin-right: 10px;
 }
 
@@ -94,13 +94,33 @@
     font-size: 1.1rem;
 }
 
-.links-column ul {
-    list-style: none;
-    padding: 0;
+/* Ajuste específico para os itens de contato */
+.links-column ul li {
+    display: flex;
+    align-items: center; /* Alinha verticalmente o ícone com o texto */
+    line-height: 1.4; /* Espaçamento entre linhas */
 }
 
-.links-column li {
-    margin-bottom: 0.5rem;
+/* Ajuste específico para o e-mail */
+.links-column ul li a[href^="mailto:"] {
+    display: flex;
+    align-items: center;
+}
+
+/* Garante que o ícone fique alinhado com o texto do e-mail */
+.links-column ul li a[href^="mailto:"] i {
+    margin-right: 8px;
+}
+
+/* Correção extra para alinhamento do e-mail */
+.links-column ul li a {
+    display: inline-flex;
+    align-items: center;
+}
+
+.links-column ul li a i {
+    margin-right: 8px;
+    flex-shrink: 0; /* Evita que o ícone diminua */
 }
 
 .links-column a {
@@ -118,17 +138,11 @@
     color: #cf0707;
 }
 
-/* Footer Bottom */
-.footer__bottom {
-    border-top: 1px solid rgba(245, 238, 230, 0.2);
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .social-links {
     margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%; /* Garante que ocupe toda a largura */
 }
 
 .social-links a {

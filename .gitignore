@@ -1,0 +1,24 @@
+﻿# Arquivos de ambiente
+.env
+.env.local
+*.env.backup
+
+# Dependências
+node_modules/
+bower_components/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Build
+dist/
+build/

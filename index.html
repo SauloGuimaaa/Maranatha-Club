@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maranatha PetVIP - Clube de Assinatura</title>
-    <link rel="stylesheet" href="assets/css/base/reset.css">
-    <link rel="stylesheet" href="assets/css/base/variables.css">
-    <link rel="stylesheet" href="assets/css/components/header.css">
-    <link rel="stylesheet" href="assets/css/components/benefits.css">
-    <link rel="stylesheet" href="assets/css/components/howitwork.css">
-    <link rel="stylesheet" href="assets/css/components/produitos.css">
-    <link rel="stylesheet" href="assets/css/components/depoimentos.css">
-    <link rel="stylesheet" href="assets/css/components/form.css">
-    <link rel="stylesheet" href="assets/css/components/faq.css">
-    <link rel="stylesheet" href="assets/css/components/footer.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="public/assets/css/main.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="assets/js/main.js" defer></script>
+    <script src="public/assets/js/main.js" defer></script>
+
+    <!-- Adicione meta tags importantes -->
+    <meta name="description" content="Assinatura PETVIP - Kits mensais personalizados para seu pet com produtos premium e benefícios exclusivos">
+    <meta name="keywords" content="pet, assinatura, cão, gato, ração premium, brinquedos pets">
+    <meta property="og:title" content="Maranatha PetVIP - Clube de Assinatura">
+    <meta property="og:description" content="Receba em casa todo mês um kit personalizado para seu pet">
+    <meta property="og:image" content="URL_DA_IMAGEM_DESTAQUE">
+        
+    <!-- Favicon -->
+    <link rel="icon" href="public/assets/images/Maranatha logo.png" type="image/x-icon">
+    
+
 </head>
 <body>
     <header class="header">
         <div class="header__container">
             <!-- Logo à esquerda -->
             <div class="header__logo">
-                <img src="assets/images/Maranatha logo.png" alt="Maranatha Pet Shop" class="logo-img">
+                <img src="public/assets/images/Maranatha logo.png" alt="Maranatha Pet Shop" class="logo-img">
                 <div class="logo-text">
-                    <span class="logo-main">MARANATHA</span>
-                    <span class="logo-sub">PET SHOP</span>
                 </div>
             </div>
 
@@ -67,19 +67,10 @@
                     <p>Todo mês um kit personalizado com produtos selecionados (valorizado em R$120, mas você paga apenas R$89).</p>
                 </div>
                 
-                <!-- Card 2 -->
-                <div class="benefit-card">
-                    <div class="benefit-icon" style="background-color: #f5eee6;">
-                        <i class="fas fa-tag" style="color: #063c8f;"></i>
-                    </div>
-                    <h3>Descontos Exclusivos</h3>
-                    <p>15% de desconto em todos os produtos da loja física e online, além de frete grátis em compras acima de R$100.</p>
-                </div>
-                
                 <!-- Card 3 -->
                 <div class="benefit-card">
                     <div class="benefit-icon" style="background-color: #f5eee6;">
-                        <i class="fas fa-paw" style="color: #cf0707;"></i>
+                        <i class="fas fa-paw" style="color: #063c8f;"></i>
                     </div>
                     <h3>Para Cães e Gatos</h3>
                     <p>Kits personalizados de acordo com o tipo, porte e necessidades específicas do seu pet.</p>
@@ -88,7 +79,7 @@
                 <!-- Card 4 -->
                 <div class="benefit-card">
                     <div class="benefit-icon" style="background-color: #f5eee6;">
-                        <i class="fas fa-exchange-alt" style="color: #063c8f;"></i>
+                        <i class="fas fa-exchange-alt" style="color: #cf0707;"></i>
                     </div>
                     <h3>Cancelamento Fácil</h3>
                     <p>Sem multas ou burocracia. Cancele quando quiser diretamente pelo nosso site ou aplicativo.</p>
@@ -164,7 +155,7 @@
         <!-- Produto 1 -->
         <div class="produto-card">
           <div class="produto-imagem">
-            <img src="imagens/kit-premium.jpg" alt="Kit Premium Maranatha" loading="lazy">
+            <img src="public/assets/images/Kit cachorro adulto.png" alt="Kit Premium Maranatha" loading="lazy">
             <span class="destaque-tag">Mais Vendido</span>
           </div>
           <div class="produto-info">
@@ -177,7 +168,7 @@
         <!-- Produto 2 -->
         <div class="produto-card">
           <div class="produto-imagem">
-            <img src="imagens/kit-dental.jpg" alt="Kit Saúde Dental" loading="lazy">
+            <img src="public/assets/images/Kit Gato adulto.png" alt="Kit Saúde Dental" loading="lazy">
           </div>
           <div class="produto-info">
             <h3>Kit Saúde Dental</h3>
@@ -189,7 +180,7 @@
         <!-- Produto 3 -->
         <div class="produto-card">
           <div class="produto-imagem">
-            <img src="imagens/kit-filhote.jpg" alt="Kit Filhote Feliz" loading="lazy">
+            <img src="public/assets/images/kit gato filhoter.png" alt="Kit Filhote Feliz" loading="lazy">
             <span class="novidade-tag">Novidade</span>
           </div>
           <div class="produto-info">
@@ -207,14 +198,14 @@
     </div>
   </section>
 
-<!-- Seção Depoimentos -->
+<!-- Seção Depoimentos
 <section class="depoimentos">
     <div class="depoimentos__container">
         <h2 class="depoimentos__title">O que dizem nossos clientes <span>PETVIP</span></h2>
         <p class="depoimentos__subtitle">Veja como estamos transformando a vida de pets e seus tutores</p>
         
         <div class="depoimentos__grid">
-            <!-- Depoimento 1 -->
+            Depoimento 1 
             <div class="depoimento-card" style="border-top: 4px solid #cf0707;">
                 <div class="depoimento-avatar">
                     <i class="fas fa-user" style="color: #063c8f;"></i>
@@ -228,7 +219,7 @@
                 </div>
             </div>
             
-            <!-- Depoimento 2 -->
+             Depoimento 2 
             <div class="depoimento-card" style="border-top: 4px solid #063c8f;">
                 <div class="depoimento-avatar">
                     <i class="fas fa-user" style="color: #cf0707;"></i>
@@ -242,7 +233,7 @@
                 </div>
             </div>
             
-            <!-- Depoimento 3 -->
+             Depoimento 3 
             <div class="depoimento-card" style="border-top: 4px solid #cf0707;">
                 <div class="depoimento-avatar">
                     <i class="fas fa-user" style="color: #063c8f;"></i>
@@ -257,7 +248,7 @@
             </div>
         </div>
         
-        <!-- Selos de confiança -->
+        Selos de confiança 
         <div class="selos-confianca">
             <div class="selo-item">
                 <i class="fas fa-shield-alt" style="color: #063c8f;"></i>
@@ -274,6 +265,7 @@
         </div>
     </div>
 </section>
+-->
 
 <!-- Seção Formulário de Captação -->
 <section class="form-capture" id="assinar">
@@ -298,51 +290,51 @@
             </div>
         </div>
         
-        <div class="form-capture__form-container">
-            <form class="petvip-form" id="petvipForm">
-                <div class="form-group">
-                    <label for="nome">Seu Nome Completo</label>
-                    <input type="text" id="nome" name="nome" required placeholder="Como gostaria de ser chamado">
+        <form class="petvip-form" id="petvipForm">
+            <div class="form-group">
+                <label for="nome">Seu Nome Completo</label>
+                <input type="text" id="nome" name="nome" required placeholder="Como gostaria de ser chamado">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Seu Melhor E-mail</label>
+                <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="telefone">WhatsApp (opcional)</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+            </div>
+            
+            <div class="form-group">
+                <label>Tipo do Pet</label>
+                <div class="pet-type-selector">
+                    <input type="radio" id="cao" name="pet_type" value="cao" checked>
+                    <label for="cao" class="pet-option">
+                        <i class="fas fa-dog"></i>
+                        <span>Cães</span>
+                    </label>
+                    
+                    <input type="radio" id="gato" name="pet_type" value="gato">
+                    <label for="gato" class="pet-option">
+                        <i class="fas fa-cat"></i>
+                        <span>Gatos</span>
+                    </label>
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">Seu Melhor E-mail</label>
-                    <input type="email" id="email" name="email" required placeholder="exemplo@email.com">
-                </div>
-                
-                <div class="form-group">
-                    <label for="telefone">WhatsApp (opcional)</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
-                </div>
-                
-                <div class="form-group">
-                    <label>Tipo do Pet</label>
-                    <div class="pet-type-selector">
-                        <input type="radio" id="cao" name="pet_type" value="cao" checked>
-                        <label for="cao" class="pet-option">
-                            <i class="fas fa-dog"></i>
-                            <span>Cão</span>
-                        </label>
-                        
-                        <input type="radio" id="gato" name="pet_type" value="gato">
-                        <label for="gato" class="pet-option">
-                            <i class="fas fa-cat"></i>
-                            <span>Gato</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <button type="submit" class="form-submit-btn">
-                    QUERO MEU KIT PETVIP!
-                    <i class="fas fa-paw"></i>
+            </div>
+            
+            <!-- Botão do Mercado Pago -->
+            <div class="mercado-pago-container">
+                <button name="MP-payButton" class="mercado-pago-button">
+                    <i class="fab fa-cc-mercadopago"></i> ASSINAR COM MERCADO PAGO
                 </button>
-                
                 <div class="form-security">
                     <i class="fas fa-lock" style="color: #063c8f;"></i>
-                    <span>Seus dados estão seguros conosco</span>
+                    <span>Pagamento seguro processado por Mercado Pago</span>
                 </div>
-            </form>
-        </div>
+            </div>
+            </div>
+        </form>
     </div>
 </section>
 
@@ -434,9 +426,9 @@
         <div class="footer__info">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <img src="assets/images/Maranatha logo.png" alt="Maranatha Pet Shop">
-                    <h4>MARANATHA PET SHOP</h4>
+                    <img src="public/assets/images/Maranatha logo.png" alt="Maranatha Pet Shop">
                 </div>
+                <p class="footer-slogan">CNPJ: 03.064.701/0001-82</p>
                 <p class="footer-slogan">Cuidando do seu pet com amor desde 1999</p>
             </div>
 
@@ -465,7 +457,10 @@
                     <h4>Atendimento</h4>
                     <ul>
                         <li><i class="fas fa-phone-alt"></i> (67) 4042-4262</li>
-                        <li><i class="fas fa-envelope"></i> lojavirtual@maranathapetshop.com.br 
+                        <li>
+                            <a href="mailto:lojavirtual@maranathapetshop.com.br?subject=Contato%20via%20Site%20PETVIP">
+                                <i class="fas fa-envelope"></i> lojavirtual@maranathapetshop.com.br
+                            </a>
                         </li>
                         <li><i class="fas fa-map-marker-alt"></i> Avenida Capibaribe, 822 - Campo Grande/MS</li>
                     </ul>
@@ -474,12 +469,22 @@
         </div>
 
         <!-- Redes sociais e direitos -->
-        <div class="footer__bottom">
-            <div class="social-links">
-                <a href="https://www.facebook.com/maranathapetshopp" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/maranathapetshop/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=556740424262&text=Oi%2C%20tudo%20bem%3F%20Preciso%20de%20ajuda%20com%20meu%20pedido" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
+        <div class="social-links">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/maranathapetshopp" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/maranathapetshop/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            
+            <!-- WhatsApp -->
+            <a href="https://api.whatsapp.com/send?phone=556740424262&text=Oi%2C%20tudo%20bem%3F%20Preciso%20de%20ajuda%20com%20meu%20pedido" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
 
             <div class="copyright">
                 <p>&copy; 1999 Maranatha Pet Shop. Todos os direitos reservados.</p>
@@ -492,5 +497,10 @@
         </div>
     </div>
 </footer>
+
+<script type="text/javascript">
+    (function(){function $MPC_load(){window.$MPC_loaded!==true&&(function(){var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://secure.mlstatic.com/mptools/render.js";var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);window.$MPC_loaded=true;})();}window.$MPC_loaded!==true?(window.attachEvent?window.attachEvent('onload',$MPC_load):window.addEventListener('load',$MPC_load,false)):null;})();
+</script>
+
 </body>
 </html>

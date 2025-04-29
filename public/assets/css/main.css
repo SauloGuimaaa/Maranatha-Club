@@ -1,0 +1,17 @@
+/* Estilos principais */
+@import url('base/variables.css');
+@import url('base/reset.css');
+@import url('components/header.css');
+@import url('components/benefits.css');
+@import url('components/howitwork.css');
+@import url('components/produitos.css');
+@import url('components/form.css');
+@import url('components/faq.css');
+@import url('components/footer.css');
+@import url('components/mercadopago.css');
+
+body {
+    background-color: var(--bege-claro);
+    color: var(--preto);
+    font-family: var(--fonte-principal);
+}

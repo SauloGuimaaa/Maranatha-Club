@@ -1,0 +1,26 @@
+.mercado-pago-button {
+    background: #009EE3;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    margin: 15px 0;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.mercado-pago-button:hover {
+    background: #0077B6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
