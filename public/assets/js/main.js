@@ -101,6 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
             feedbackDiv.classList.add(type);
             feedbackDiv.setAttribute('aria-live', 'polite');
             
+            // Rolagem suave para o feedback
+            feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
             setTimeout(() => {
                 feedbackDiv.classList.remove(type);
             }, 5000);
@@ -128,18 +131,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 try {
                     // Armazena os dados temporariamente
-                    const petTypeRadio = document.querySelector('input[name="pet_type"]:checked');
-                    if (!petTypeRadio) {
-                        showFeedback('Por favor, selecione o tipo do seu pet.', 'error');
-                        return;
-                    }
+                    // No main.js, atualize a validação do tipo de pet
+                if (!petTypeRadio) {
+                    showFeedback('Por favor, selecione o tipo do seu pet.', 'error');
+                    return;
+                }
 
-                    const leadData = {
-                        nome: nomeInput.value.trim(),
-                        email: emailInput.value.trim(),
-                        telefone: telefoneInput ? telefoneInput.value.replace(/\D/g, '') : '',
-                        petType: petTypeRadio.value
-                    };
+                // Converter para o formato que o backend espera
+                const petTypeMap = {
+                    'cao': 'caes',
+                    'gato': 'gatos'
+                };
+
+                const leadData = {
+                    nome: nomeInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    telefone: telefoneInput ? telefoneInput.value.replace(/\D/g, '') : '',
+                    petType: petTypeMap[petTypeRadio.value] || petTypeRadio.value
+                };
 
                     // Mostra feedback de carregamento
                     showFeedback('Processando sua assinatura...', 'info');
